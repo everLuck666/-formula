@@ -30,12 +30,27 @@ public class major {
         HashSet set = new HashSet();
 
         ServerImp serverImp = new ServerImp();
-        for(int i=0;i<10;i++) {
+        for(int i=0;i<10000;i++) {
             String title =  c2.create_title(10,3);
-            if(serverImp.removeRepeat(title,set)){//去除重复的函数，并把结果存储在set中
+            System.out.println("我是title"+title);
+            double relust = Double.parseDouble(c.calculate(title.toCharArray()));
+            System.out.println("我是result"+relust);
+            System.out.println("我是"+i);
+            if(relust<0.0) {
+               //出现负数去除
+                if(i!=0)
+                i--;
 
-            }
+                System.out.println("出现负数");
+
+                continue;
+          }
+
+           if(!serverImp.removeRepeat(title,set)){//去除重复的函数，并把结果存储在set中
+              i--;
+                }
         }
+        System.out.println("+++++++++++++++++++"+set.size());
         Iterator iterator = set.iterator();
         int j = 0;
         while (iterator.hasNext()){

@@ -111,11 +111,6 @@ public class CalculateImp {
                         stackj[++top] = temp2 + temp1;
                         break;
                     case '-':
-                    	if(temp2 < temp1) {
-                    		double tem = temp2;
-                    		temp2 = temp1;
-                    		temp1 = tem;
-                    	}
                         stackj[++top] = temp2 - temp1;
                         break;
                     case '*':
@@ -133,8 +128,14 @@ public class CalculateImp {
             }
         }
         double result = stackj[0];
-//        System.out.println("_____" + (result) + "______");
+        System.out.println("_____" + (result) + "______");
         return result + "";
+    }
+
+    public static void main(String[] args) {
+        CalculateImp c = new CalculateImp();
+        String title = "(4÷8)-6";
+        c.calculate(title.toCharArray());
     }
 
   

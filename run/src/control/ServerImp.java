@@ -11,7 +11,12 @@ public class ServerImp {
     boolean flag = true;
     public boolean removeRepeat(String title, HashSet set) {
         if(title.length()>5){
-            set.add(title);
+            if(!set.add(title)){
+                flag = false;
+            }else{
+                flag = true;
+            }
+
         }
         if (title.charAt(0) == '(') {
             if (title.length() == 5) {//只有出现两个数字相加的时候才允许运行
